@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Threat Map Dashboard</title>
+    <style>
+        :root { --neon-cyan: #00ffcc; --bg-dark: #000; --bar-bg: #1a1a1a; }
+        body, html { margin: 0; padding: 0; background: var(--bg-dark); color: #fff; font-family: 'Segoe UI', sans-serif; height: 100vh; width: 100vw; overflow: hidden; }
+
+        #drag-shield { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2000; }
+
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 100vh; width: 100vw; gap: 2px; background: #333; }
+        .grid-item { background: var(--bg-dark); display: flex; flex-direction: column; overflow: hidden; position: relative; }
+
+        .control-bar {
+            background: var(--bar-bg); padding: 4px 8px; display: flex; align-items: center; gap: 6px; 
+            border-bottom: 2px solid var(--neon-cyan); flex-shrink: 0;
+        }
+        
+        select { background: #333; color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 2px; border-radius: 4px; font-size: 11px; outline: none; }
+        .btn-tool { background: transparent; color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 10px; text-transform: uppercase; font-weight: bold; }
+        .btn-tool:hover { background: var(--neon-cyan); color: #000; }
+        
+        iframe { border: none; width: 100%; flex-grow: 1; background: #000; }
+
+        /* Central Control Unit */
+        #central-logo {
+            position: absolute; z-index: 1500;
+            padding: 12px 0; background: rgba(0,0,0,0.96); border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); 
+            display: flex; flex-direction: column; align-items: center; border-radius: 12px; cursor: move;
+            width: 280px; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        }
+
+        .logo-row { display: flex; align-items: center; justify-content: center; width: 100%; gap: 10px; margin-bottom: 12px; padding: 0 15px; }
+        .logo-img { height: 42px; width: auto; flex-shrink: 0; }
+        .logo-divider { width: 1.5px; height: 30px; background: var(--neon-cyan); opacity: 0.6; }
+        
+        .logo-text-box { text-align: center; min-width: 100px; }
+        .logo-text-box h1 { margin: 0; font-size: 18px; color: #fff; white-space: nowrap; font-weight: bold; }
+        .logo-text-box p { margin: 2px 0 0 0; font-size: 9px; color: var(--neon-cyan); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .master-controls { 
+            position: relative; display: flex; justify-content: space-between; width: 100%; align-items: center; 
+            padding: 0 45px; box-sizing: border-box;
+        }
+        .btn-master { 
+            background: var(--neon-cyan); color: #000; border: none; padding: 4px 0; border-radius: 4px; cursor: pointer; 
+            font-size: 10px; font-weight: bold; width: 65px; text-align: center; text-transform: uppercase;
+        }
+        
+        .btn-recenter { 
+            background: transparent; color: var(--neon-cyan); border: 1px solid var(--neon-cyan); width: 22px; height: 22px; border-radius: 50%; 
+            cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px;
+        }
+
+        /* Maximize Overlay */
+        #max-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; z-index: 9999; flex-direction: column; }
+        .max-header { background: #0a0a0a; padding: 6px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--neon-cyan); }
+        .max-header-logos { display: flex; align-items: center; gap: 10px; }
+        .max-header-tools { display: flex; gap: 8px; align-items: center; }
+    </style>
+</head>
+<body>
+
+<div id="drag-shield"></div>
+
+<div id="central-logo">
+    <div class="logo-row">
+        <img src="logo.png" alt="Company Logo" class="logo-img">
+        <div class="logo-divider"></div>
+        <div class="logo-text-box">
+            <h1>Your Company</h1>
+            <p>Department Name</p>
+        </div>
+    </div>
+    <div class="master-controls">
+        <button class="btn-master" onclick="shuffleAll()">Shuffle</button>
+        <button class="btn-recenter" title="Recenter" onclick="recenterLogo()">𖦏</button>
+        <button class="btn-master" onclick="resetAll()">Reset</button>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="grid-item">
+        <div class="control-bar"><select id="s1" onchange="up(1)"></select><button class="btn-tool" onclick="setRandom(1)">Random</button><button class="btn-tool" onclick="setDefault(1)">Default</button><button class="btn-tool" onclick="openMax(1)">Maximize</button></div>
+        <iframe id="f1"></iframe>
+    </div>
+    <div class="grid-item">
+        <div class="control-bar" style="justify-content: flex-end;"><select id="s2" onchange="up(2)"></select><button class="btn-tool" onclick="setRandom(2)">Random</button><button class="btn-tool" onclick="setDefault(2)">Default</button><button class="btn-tool" onclick="openMax(2)">Maximize</button></div>
+        <iframe id="f2"></iframe>
+    </div>
+    <div class="grid-item">
+        <div class="control-bar"><select id="s3" onchange="up(3)"></select><button class="btn-tool" onclick="setRandom(3)">Random</button><button class="btn-tool" onclick="setDefault(3)">Default</button><button class="btn-tool" onclick="openMax(3)">Maximize</button></div>
+        <iframe id="f3"></iframe>
+    </div>
+    <div class="grid-item">
+        <div class="control-bar" style="justify-content: flex-end;"><select id="s4" onchange="up(4)"></select><button class="btn-tool" onclick="setRandom(4)">Random</button><button class="btn-tool" onclick="setDefault(4)">Default</button><button class="btn-tool" onclick="openMax(4)">Maximize</button></div>
+        <iframe id="f4"></iframe>
+    </div>
+</div>
+
+<div id="max-overlay">
+    <div class="max-header">
+        <div class="max-header-logos">
+            <img src="logo.png" style="height: 25px;">
+            <span style="font-size:11px; font-weight:bold; color:var(--neon-cyan); margin-left: 5px;">THREAT MONITORING</span>
+        </div>
+        <div class="max-header-tools">
+            <span style="color:#888; font-size: 11px;">SOURCE:</span>
+            <select id="max-select" onchange="maxSync()"></select>
+            <button class="btn-tool" onclick="maxRandom()">Random</button>
+            <button class="btn-tool" onclick="maxDefault()">Default</button>
+            <button style="background:#ff4c4c; color:white; border:none; padding:4px 12px; border-radius:4px; cursor:pointer; font-size:10px; font-weight:bold;" onclick="closeMax()">CLOSE X</button>
+        </div>
+    </div>
+    <iframe id="max-frame"></iframe>
+</div>
+
+<script>
+    const logo = document.getElementById('central-logo');
+    const shield = document.getElementById('drag-shield');
+    let active = false, currentX = 0, currentY = 0, initialX, initialY, xOffset = 0, yOffset = 0;
+    let activeMaxId = 1;
+
+    // List of public threat maps
+    const sites = [
+        { name: "Kaspersky", url: "https://cybermap.kaspersky.com/" },
+        { name: "HTTPCS", url: "https://map.httpcs.com/" },
+        { name: "Radware", url: "https://livethreatmap.radware.com/" },
+        { name: "Fortinet", url: "https://fortiguard.fortinet.com/threat-map" },
+        { name: "Bitdefender", url: "https://threatmap.bitdefender.com/" },
+        { name: "Check Point", url: "https://threatmap.checkpoint.com/" },
+        { name: "FireEye/Mandiant", url: "https://www.mandiant.com/advantage/threat-intelligence/threat-map" },
+        { name: "Spamhaus", url: "https://www.spamhaus.org/statistics/tlds/" },
+        { name: "Sonic Wall", url: "https://securitycenter.sonicwall.com/m/page/worldwide-attacks" }
+    ];
+
+    function init() {
+        document.querySelectorAll('select').forEach(sel => {
+            sites.forEach(s => { let o = document.createElement("option"); o.value = s.url; o.text = s.name; sel.appendChild(o); });
+        });
+        for (let i = 1; i <= 4; i++) setDefault(i);
+    }
+
+    logo.addEventListener('mousedown', (e) => { if(!e.target.closest('.master-controls')){ active = true; initialX = e.clientX - xOffset; initialY = e.clientY - yOffset; shield.style.display = 'block'; }});
+    window.addEventListener('mousemove', (e) => { if(active){ currentX = e.clientX - initialX; currentY = e.clientY - initialY; xOffset = currentX; yOffset = currentY; logo.style.transform = `translate(calc(-50% + ${currentX}px), calc(-50% + ${currentY}px))`; }});
+    window.addEventListener('mouseup', () => { active = false; shield.style.display = 'none'; });
+
+    function recenterLogo() { xOffset=0; yOffset=0; currentX=0; currentY=0; logo.style.transform=`translate(-50%, -50%)`; }
+    function up(id) { document.getElementById(`f${id}`).src = document.getElementById(`s${id}`).value; }
+    function setDefault(id) { document.getElementById(`s${id}`).selectedIndex = id % sites.length; up(id); }
+
+    function shuffleAll() {
+        let availableSites = [...sites];
+        for (let i = 1; i <= 4; i++) {
+            const randomIndex = Math.floor(Math.random() * availableSites.length);
+            const selected = availableSites.splice(randomIndex, 1)[0];
+            document.getElementById(`s${i}`).value = selected.url;
+            up(i);
+        }
+    }
+
+    function setRandom(id) {
+        let currentUrls = [1,2,3,4].map(i => document.getElementById(`s${i}`).value);
+        let filtered = sites.filter(s => !currentUrls.includes(s.url));
+        if (filtered.length === 0) filtered = sites;
+        const rand = filtered[Math.floor(Math.random() * filtered.length)];
+        document.getElementById(`s${id}`).value = rand.url;
+        up(id);
+    }
+
+    function resetAll() { for(let i=1;i<=4;i++) setDefault(i); }
+
+    function openMax(id) { activeMaxId = id; const currentUrl = document.getElementById(`f${id}`).src; document.getElementById('max-frame').src = currentUrl; document.getElementById('max-select').value = currentUrl; document.getElementById('max-overlay').style.display = 'flex'; }
+    function closeMax() { document.getElementById('max-overlay').style.display = 'none'; document.getElementById('max-frame').src = ''; }
+    function maxSync() { const val = document.getElementById('max-select').value; document.getElementById('max-frame').src = val; document.getElementById(`s${activeMaxId}`).value = val; up(activeMaxId); }
+    function maxRandom() { const randSite = sites[Math.floor(Math.random()*sites.length)].url; document.getElementById('max-select').value = randSite; maxSync(); }
+    function maxDefault() { document.getElementById('max-select').selectedIndex = activeMaxId % sites.length; maxSync(); }
+
+    window.onload = init;
+</script>
+</body>
+</html>
