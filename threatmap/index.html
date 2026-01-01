@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Threat Map Dashboard</title>
     <style>
-        :root { --neon-cyan: #00ffcc; --bg-dark: #000; --bar-bg: #1a1a1a; }
+        :root { --neon-cyan: #00ffcc; --bg-dark: #000; --bar-bg: #1a1a1a; --warning-orange: #ff9800; }
         body, html { margin: 0; padding: 0; background: var(--bg-dark); color: #fff; font-family: 'Segoe UI', sans-serif; height: 100vh; width: 100vw; overflow: hidden; }
 
         #drag-shield { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2000; }
@@ -22,9 +22,9 @@
         .btn-tool { background: transparent; color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 10px; text-transform: uppercase; font-weight: bold; }
         .btn-tool:hover { background: var(--neon-cyan); color: #000; }
         
-        /* כפתור פתיחה חיצונית מיוחד */
-        .btn-external { background: #ff9800; color: #000; border: none; display: none; }
-        .btn-external:hover { background: #e68900; color: #fff; }
+        /* כפתור כתום בולט לתיקון קספרסקי */
+        .btn-fix { background: var(--warning-orange); color: #000; border: none; display: none; }
+        .btn-fix:hover { background: #e68900; color: #fff; }
 
         iframe { border: none; width: 100%; flex-grow: 1; background: #000; }
 
@@ -60,9 +60,7 @@
 
         #max-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; z-index: 9999; flex-direction: column; }
         .max-header { background: #0a0a0a; padding: 6px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--neon-cyan); }
-        .max-header-logos { display: flex; align-items: center; gap: 10px; }
-        .max-header-tools { display: flex; gap: 8px; align-items: center; }
-
+        
         .footer-credit {
             position: fixed; bottom: 10px; right: 15px; font-size: 10px; color: rgba(255, 255, 255, 0.4);
             z-index: 500; pointer-events: none; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
@@ -91,34 +89,58 @@
 
 <div class="grid-container">
     <div class="grid-item">
-        <div class="control-bar"><select id="s1" onchange="up(1)"></select><button id="ext1" class="btn-tool btn-external" onclick="openExternal(1)">Open Link ↗</button><button class="btn-tool" onclick="setRandom(1)">Random</button><button class="btn-tool" onclick="openMax(1)">Maximize</button></div>
+        <div class="control-bar">
+            <select id="s1" onchange="up(1)"></select>
+            <button id="ext1" class="btn-tool btn-fix" onclick="openExternal(1)">Fix Map ↗</button>
+            <button class="btn-tool" onclick="setRandom(1)">Random</button>
+            <button class="btn-tool" onclick="setDefault(1)">Default</button>
+            <button class="btn-tool" onclick="openMax(1)">Maximize</button>
+        </div>
         <iframe id="f1"></iframe>
     </div>
     <div class="grid-item">
-        <div class="control-bar" style="justify-content: flex-end;"><select id="s2" onchange="up(2)"></select><button id="ext2" class="btn-tool btn-external" onclick="openExternal(2)">Open Link ↗</button><button class="btn-tool" onclick="setRandom(2)">Random</button><button class="btn-tool" onclick="openMax(2)">Maximize</button></div>
+        <div class="control-bar" style="justify-content: flex-end;">
+            <select id="s2" onchange="up(2)"></select>
+            <button id="ext2" class="btn-tool btn-fix" onclick="openExternal(2)">Fix Map ↗</button>
+            <button class="btn-tool" onclick="setRandom(2)">Random</button>
+            <button class="btn-tool" onclick="setDefault(2)">Default</button>
+            <button class="btn-tool" onclick="openMax(2)">Maximize</button>
+        </div>
         <iframe id="f2"></iframe>
     </div>
     <div class="grid-item">
-        <div class="control-bar"><select id="s3" onchange="up(3)"></select><button id="ext3" class="btn-tool btn-external" onclick="openExternal(3)">Open Link ↗</button><button class="btn-tool" onclick="setRandom(3)">Random</button><button class="btn-tool" onclick="openMax(3)">Maximize</button></div>
+        <div class="control-bar">
+            <select id="s3" onchange="up(3)"></select>
+            <button id="ext3" class="btn-tool btn-fix" onclick="openExternal(3)">Fix Map ↗</button>
+            <button class="btn-tool" onclick="setRandom(3)">Random</button>
+            <button class="btn-tool" onclick="setDefault(3)">Default</button>
+            <button class="btn-tool" onclick="openMax(3)">Maximize</button>
+        </div>
         <iframe id="f3"></iframe>
     </div>
     <div class="grid-item">
-        <div class="control-bar" style="justify-content: flex-end;"><select id="s4" onchange="up(4)"></select><button id="ext4" class="btn-tool btn-external" onclick="openExternal(4)">Open Link ↗</button><button class="btn-tool" onclick="setRandom(4)">Random</button><button class="btn-tool" onclick="openMax(4)">Maximize</button></div>
+        <div class="control-bar" style="justify-content: flex-end;">
+            <select id="s4" onchange="up(4)"></select>
+            <button id="ext4" class="btn-tool btn-fix" onclick="openExternal(4)">Fix Map ↗</button>
+            <button class="btn-tool" onclick="setRandom(4)">Random</button>
+            <button class="btn-tool" onclick="setDefault(4)">Default</button>
+            <button class="btn-tool" onclick="openMax(4)">Maximize</button>
+        </div>
         <iframe id="f4"></iframe>
     </div>
 </div>
 
 <div id="max-overlay">
     <div class="max-header">
-        <div class="max-header-logos">
+        <div style="display:flex; align-items:center; gap:10px;">
             <img src="logo.png" style="height: 25px;">
-            <span style="font-size:11px; font-weight:bold; color:var(--neon-cyan); margin-left: 5px;">THREAT MONITORING</span>
+            <span style="font-size:11px; font-weight:bold; color:var(--neon-cyan);">FULLSCREEN MONITOR</span>
         </div>
-        <div class="max-header-tools">
+        <div style="display:flex; gap:8px;">
             <select id="max-select" onchange="maxSync()"></select>
-            <button id="ext-max" class="btn-tool btn-external" onclick="openExternal('max')">Open Link ↗</button>
-            <button class="btn-tool" onclick="maxRandom()">Random</button>
-            <button style="background:#ff4c4c; color:white; border:none; padding:4px 12px; border-radius:4px; cursor:pointer; font-size:10px; font-weight:bold;" onclick="closeMax()">CLOSE X</button>
+            <button id="ext-max" class="btn-tool btn-fix" onclick="openExternal('max')">Fix Map ↗</button>
+            <button class="btn-tool" onclick="maxDefault()">Default</button>
+            <button style="background:#ff4c4c; color:white; border:none; padding:4px 12px; border-radius:4px; cursor:pointer; font-size:10px;" onclick="closeMax()">CLOSE X</button>
         </div>
     </div>
     <iframe id="max-frame"></iframe>
@@ -132,15 +154,15 @@
     let active = false, currentX = 0, currentY = 0, initialX, initialY, xOffset = 0, yOffset = 0;
     let activeMaxId = 1;
 
+    // הכתובת עודכנה לגרסת הווידג'ט המלאה שנוטה לעבוד טוב יותר
     const sites = [
-        { name: "Kaspersky", url: "https://cybermap.kaspersky.com/" },
+        { name: "Kaspersky", url: "https://cybermap.kaspersky.com/en/widget/dynamic/dark" },
         { name: "HTTPCS", url: "https://map.httpcs.com/" },
         { name: "Radware", url: "https://livethreatmap.radware.com/" },
         { name: "Fortinet", url: "https://fortiguard.fortinet.com/threat-map" },
         { name: "Bitdefender", url: "https://threatmap.bitdefender.com/" },
         { name: "Check Point", url: "https://threatmap.checkpoint.com/" },
         { name: "Shodan Israel", url: "https://exposure.shodan.io/#/IL" },
-        { name: "Shodan Germany", url: "https://exposure.shodan.io/#/DE" },
         { name: "Shodan USA", url: "https://exposure.shodan.io/#/US" },
         { name: "Threatbutt", url: "https://threatbutt.com/map/" },
         { name: "Sonic Wall", url: "https://securitycenter.sonicwall.com/m/page/worldwide-attacks" }
@@ -165,22 +187,29 @@
         const extBtn = document.getElementById(`ext${id}`);
         const url = select.value;
         
-        // אם זה קספרסקי, נציג את הכפתור הכתום לפתיחה חיצונית
-        if (url.includes("kaspersky")) {
-            extBtn.style.display = "inline-block";
-        } else {
-            extBtn.style.display = "none";
-        }
-        
+        // הצגת כפתור התיקון רק עבור קספרסקי
+        extBtn.style.display = url.includes("kaspersky") ? "inline-block" : "none";
         iframe.src = url; 
     }
 
+    // פונקציית פתיחה חיצונית מתוקנת - שימוש ב-noopener למניעת חסימות
     function openExternal(id) {
-        const url = id === 'max' ? document.getElementById('max-select').value : document.getElementById(`s${id}`).value;
-        window.open(url, '_blank');
+        let url;
+        if (id === 'max') {
+            url = document.getElementById('max-select').value;
+        } else {
+            url = document.getElementById(`s${id}`).value;
+        }
+        // ניקוי ה-URL כדי לוודא שזה נפתח נקי
+        const cleanUrl = url.split('?')[0].replace('/en/widget/dynamic/dark', '');
+        window.open(cleanUrl, '_blank', 'noopener,noreferrer');
     }
 
-    function setDefault(id) { document.getElementById(`s${id}`).selectedIndex = (id - 1) % sites.length; up(id); }
+    function setDefault(id) { 
+        const sel = document.getElementById(`s${id}`);
+        sel.selectedIndex = (id - 1) % sites.length; 
+        up(id); 
+    }
 
     function shuffleAll() {
         let availableSites = [...sites];
@@ -222,7 +251,10 @@
         up(activeMaxId); 
     }
 
-    function maxRandom() { const randSite = sites[Math.floor(Math.random()*sites.length)].url; document.getElementById('max-select').value = randSite; maxSync(); }
+    function maxDefault() { 
+        document.getElementById('max-select').selectedIndex = (activeMaxId - 1) % sites.length; 
+        maxSync(); 
+    }
 
     window.onload = init;
 </script>
