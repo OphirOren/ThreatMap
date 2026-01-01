@@ -60,6 +60,22 @@
         .max-header { background: #0a0a0a; padding: 6px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--neon-cyan); }
         .max-header-logos { display: flex; align-items: center; gap: 10px; }
         .max-header-tools { display: flex; gap: 8px; align-items: center; }
+
+        
+        /* Footer Credit */
+        .footer-credit {
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 500;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
@@ -118,6 +134,8 @@
     <iframe id="max-frame"></iframe>
 </div>
 
+<div class="footer-credit">Developed by Ophir Oren</div>
+
 <script>
     const logo = document.getElementById('central-logo');
     const shield = document.getElementById('drag-shield');
@@ -126,14 +144,16 @@
 
     // List of public threat maps
     const sites = [
-        { name: "Kaspersky", url: "https://cybermap.kaspersky.com/" },
+          { name: "Kaspersky", url: "https://cybermap.kaspersky.com/" },
         { name: "HTTPCS", url: "https://map.httpcs.com/" },
         { name: "Radware", url: "https://livethreatmap.radware.com/" },
         { name: "Fortinet", url: "https://fortiguard.fortinet.com/threat-map" },
         { name: "Bitdefender", url: "https://threatmap.bitdefender.com/" },
         { name: "Check Point", url: "https://threatmap.checkpoint.com/" },
-        { name: "FireEye/Mandiant", url: "https://www.mandiant.com/advantage/threat-intelligence/threat-map" },
-        { name: "Spamhaus", url: "https://www.spamhaus.org/statistics/tlds/" },
+        { name: "Shodan Israel", url: "https://exposure.shodan.io/#/IL" },
+        { name: "Shodan Germany", url: "https://exposure.shodan.io/#/DE" },
+        { name: "Shodan USA", url: "https://exposure.shodan.io/#/US" },
+        { name: "Threatbutt", url: "https://threatbutt.com/map/" },
         { name: "Sonic Wall", url: "https://securitycenter.sonicwall.com/m/page/worldwide-attacks" }
     ];
 
