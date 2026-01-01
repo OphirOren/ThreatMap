@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Threat Map Dashboard</title>
     <style>
-        :root { --neon-cyan: #00ffcc; --bg-dark: #000; --bar-bg: #1a1a1a; }
+        :root { --neon-cyan: #00ffcc; --bg-dark: #000; --bar-bg: #1a1a1a; --warning-orange: #ff9800; }
         body, html { margin: 0; padding: 0; background: var(--bg-dark); color: #fff; font-family: 'Segoe UI', sans-serif; height: 100vh; width: 100vw; overflow: hidden; }
 
         #drag-shield { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2000; }
@@ -23,6 +23,15 @@
         .btn-tool:hover { background: var(--neon-cyan); color: #000; }
         
         iframe { border: none; width: 100%; flex-grow: 1; background: #000; }
+
+        /* Cookie Warning Tooltip */
+        .cookie-hint {
+            display: none; position: absolute; bottom: 5px; left: 5px; right: 5px;
+            background: rgba(255, 152, 0, 0.9); color: #000; font-size: 10px;
+            padding: 5px; border-radius: 4px; text-align: center; font-weight: bold;
+            z-index: 100; pointer-events: none; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 0.7; } 50% { opacity: 1; } 100% { opacity: 0.7; } }
 
         /* Central Control Unit */
         #central-logo {
@@ -55,13 +64,11 @@
             cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px;
         }
 
-        /* Maximize Overlay */
         #max-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; z-index: 9999; flex-direction: column; }
         .max-header { background: #0a0a0a; padding: 6px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--neon-cyan); }
         .max-header-logos { display: flex; align-items: center; gap: 10px; }
         .max-header-tools { display: flex; gap: 8px; align-items: center; }
 
-        /* Footer Credit */
         .footer-credit {
             position: fixed; bottom: 10px; right: 15px; font-size: 10px; color: rgba(255, 255, 255, 0.4);
             z-index: 500; pointer-events: none; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
@@ -92,18 +99,22 @@
     <div class="grid-item">
         <div class="control-bar"><select id="s1" onchange="up(1)"></select><button class="btn-tool" onclick="setRandom(1)">Random</button><button class="btn-tool" onclick="setDefault(1)">Default</button><button class="btn-tool" onclick="openMax(1)">Maximize</button></div>
         <iframe id="f1"></iframe>
+        <div id="h1" class="cookie-hint">If map fails: Click the Eye/Lock icon in URL bar and "Allow Cookies"</div>
     </div>
     <div class="grid-item">
         <div class="control-bar" style="justify-content: flex-end;"><select id="s2" onchange="up(2)"></select><button class="btn-tool" onclick="setRandom(2)">Random</button><button class="btn-tool" onclick="setDefault(2)">Default</button><button class="btn-tool" onclick="openMax(2)">Maximize</button></div>
         <iframe id="f2"></iframe>
+        <div id="h2" class="cookie-hint">If map fails: Click the Eye/Lock icon in URL bar and "Allow Cookies"</div>
     </div>
     <div class="grid-item">
         <div class="control-bar"><select id="s3" onchange="up(3)"></select><button class="btn-tool" onclick="setRandom(3)">Random</button><button class="btn-tool" onclick="setDefault(3)">Default</button><button class="btn-tool" onclick="openMax(3)">Maximize</button></div>
         <iframe id="f3"></iframe>
+        <div id="h3" class="cookie-hint">If map fails: Click the Eye/Lock icon in URL bar and "Allow Cookies"</div>
     </div>
     <div class="grid-item">
         <div class="control-bar" style="justify-content: flex-end;"><select id="s4" onchange="up(4)"></select><button class="btn-tool" onclick="setRandom(4)">Random</button><button class="btn-tool" onclick="setDefault(4)">Default</button><button class="btn-tool" onclick="openMax(4)">Maximize</button></div>
         <iframe id="f4"></iframe>
+        <div id="h4" class="cookie-hint">If map fails: Click the Eye/Lock icon in URL bar and "Allow Cookies"</div>
     </div>
 </div>
 
@@ -122,6 +133,7 @@
         </div>
     </div>
     <iframe id="max-frame"></iframe>
+    <div id="max-hint" class="cookie-hint" style="bottom: 20px;">If map fails: Click the Eye/Lock icon in URL bar and "Allow Cookies"</div>
 </div>
 
 <div class="footer-credit">Developed by Ophir Oren</div>
@@ -161,12 +173,15 @@
     
     function up(id) { 
         const iframe = document.getElementById(`f${id}`);
+        const hint = document.getElementById(`h${id}`);
         const url = document.getElementById(`s${id}`).value;
         
         if (url.includes("kaspersky")) {
             iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-popups");
+            hint.style.display = "block"; // הצגת ההסבר לעוגיות
         } else {
             iframe.removeAttribute("sandbox");
+            hint.style.display = "none";
         }
         iframe.src = url; 
     }
@@ -198,11 +213,14 @@
         activeMaxId = id; 
         const currentUrl = document.getElementById(`f${id}`).src; 
         const maxFrame = document.getElementById('max-frame');
+        const maxHint = document.getElementById('max-hint');
         
         if (currentUrl.includes("kaspersky")) {
             maxFrame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-popups");
+            maxHint.style.display = "block";
         } else {
             maxFrame.removeAttribute("sandbox");
+            maxHint.style.display = "none";
         }
         
         maxFrame.src = currentUrl; 
@@ -215,11 +233,14 @@
     function maxSync() { 
         const val = document.getElementById('max-select').value; 
         const maxFrame = document.getElementById('max-frame');
+        const maxHint = document.getElementById('max-hint');
         
         if (val.includes("kaspersky")) {
             maxFrame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-popups");
+            maxHint.style.display = "block";
         } else {
             maxFrame.removeAttribute("sandbox");
+            maxHint.style.display = "none";
         }
         
         maxFrame.src = val; 
