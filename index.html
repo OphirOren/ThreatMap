@@ -3,433 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ophir Oren | Cyber & AI Security Innovation</title>
     
-    <title>Ophir Oren | Cyber & AI Security Innovation Strategist</title>
-    <meta name="description" content="Portfolio of Ophir Oren - Specialist in Cyber Security Innovation, AI Security, and Defensive Operations. Over 20 years of experience, including leadership roles at Bayer and Clalit.">
-    <meta name="keywords" content="Ophir Oren, Cyber Security, AI Security, Innovation, Purple Team, Defensive Cyber, Bayer, Clalit, Venture Capital Advisory">
-    <meta name="author" content="Ophir Oren">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Ophir Oren",
-      "jobTitle": "Head of Cyber and AI Security Innovation",
-      "url": "https://ophiroren.github.io/",
-      "sameAs": [
-        "https://www.linkedin.com/in/ophiro/"
-      ],
-      "worksFor": [
-        {
-          "@type": "Organization",
-          "name": "Bayer"
-        },
-        {
-          "@type": "Organization",
-          "name": "Clalit Health Services"
-        }
-      ],
-      "description": "Cyber & AI Innovation Strategist with over 20 years of experience in defensive cyber operations and enterprise security leadership."
-    }
-    </script>
-
-    <meta property="og:title" content="Ophir Oren | Cyber & AI Innovation">
-    <meta property="og:description" content="Bridging the gap between emerging threats and innovative defense. Explore my strategic research and projects.">
-    <meta property="og:image" content="logo.png">
-    <meta property="og:url" content="https://ophiroren.github.io/">
-    <meta property="og:type" content="website">
-
     <meta name="google-site-verification" content="fCPkw8CyQyRT8MzWACVIYtRJVDJZw2oQZHSSdZWcoQ4" />
+    <meta name="description" content="Portfolio of Ophir Oren - Specialist in Cyber Security Innovation, AI Security, and Purple Team Leadership.">
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NEZT0NB61"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0NEZT0NB61');
-    </script>
-
     <style>
         :root {
-            --bg-deep: #0f0524; 
-            --bg-card: #1a0b3d; 
-            --accent-cyan: #00ffcc;
-            --text-main: #ffffff;
-            --text-dim: #b3a9c9;
-            --border: #2d1b5a;
+            --bg: #0f0524; --card: #1a0b3d; --accent: #00ffcc;
+            --text: #fff; --dim: #b3a9c9; --border: #2d1b5a;
         }
-
+        * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
+        body { 
+            margin: 0; background: var(--bg); color: var(--text); 
+            font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        
+        .cover { 
+            height: 320px; background: url('linkedincover.jpg') center/cover; 
+            border-bottom: 2px solid var(--accent); 
+        }
+        .header { 
+            padding-top: 120px; display: flex; align-items: flex-end; gap: 25px; 
+            margin-bottom: 40px; margin-top: -180px; 
+        }
+        .logo { 
+            width: 180px; height: 180px; border-radius: 50%; 
+            border: 4px solid var(--accent); background: var(--bg); object-fit: cover; z-index: 10;
         }
 
-        .cover-image {
-            width: 100%;
-            height: 320px;
-            background-image: url('linkedincover.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-bottom: 2px solid var(--accent-cyan);
-        }
+        .info-area { display: flex; flex-direction: column; gap: 8px; }
+        .name-row { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        h1 { font-size: clamp(2rem, 6vw, 3rem); margin: 0; letter-spacing: -1.5px; }
+        
+        .linkedin-link { display: flex; align-items: center; text-decoration: none; }
+        .linkedin-icon { width: 32px; height: 32px; fill: #fff; transition: 0.3s; }
+        .linkedin-icon:hover { fill: var(--accent); transform: scale(1.1); }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .header-content {
-            margin-top: -100px;
-            display: flex;
-            align-items: flex-end;
-            gap: 25px;
-            margin-bottom: 40px;
-            padding-top: 30px;
-        }
-
-        .logo-main {
-            width: 180px; 
-            height: 180px;
-            object-fit: cover;
-            background: var(--bg-deep);
-            border: 4px solid var(--accent-cyan);
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .name-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-        }
-
-        .linkedin-svg {
-            width: 32px;
-            height: 32px;
-            fill: #ffffff;
-            transition: transform 0.2s, fill 0.2s;
-            display: block;
-        }
-
-        .linkedin-svg:hover { transform: scale(1.1); fill: var(--accent-cyan); }
-
-        .main-subtitle {
-            font-size: 1.1rem;
-            color: var(--accent-cyan);
+        /* Unified Badge Style */
+        .badge { 
+            background: rgba(0, 255, 204, 0.1); 
+            color: var(--accent); 
+            border: 1px solid var(--accent);
+            padding: 4px 14px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
             font-weight: 600;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
+            white-space: nowrap;
+            display: inline-flex;
             align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .header-cta {
-            text-decoration: none;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.2s;
-            cursor: pointer;
-            text-transform: none;
-            letter-spacing: normal;
-        }
-
-        .header-cta:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); }
-
-        .about-section {
-            margin-bottom: 50px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            border-left: 2px solid var(--accent-cyan);
-        }
-
-        .about-text { color: var(--text-dim); font-size: 1.1rem; max-width: 850px; margin: 0; }
-        .about-text strong { color: var(--text-main); }
-
-        .section-header-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 60px 0 25px 0;
-        }
-
-        .section-label {
-            color: var(--accent-cyan);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-grow: 1;
-        }
-
-        .section-label::after {
-            content: "";
-            height: 1px;
-            background: var(--border);
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-
-        .controls { display: flex; gap: 10px; }
-
-        .btn-control {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-dim);
-            padding: 5px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.2s;
-        }
-
-        .btn-control:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
-
-        .accordion-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        details {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            height: fit-content;
-        }
-
-        .focus-details {
-            background: linear-gradient(145deg, var(--bg-card), #251352);
-        }
-
-        details[open] { border-color: var(--accent-cyan); }
-
-        summary {
-            padding: 20px;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-        }
-
-        summary::-webkit-details-marker { display: none; }
-
-        .year-count {
-            font-size: 0.7rem;
-            background: var(--border);
-            padding: 2px 8px;
-            border-radius: 10px;
             margin-left: 10px;
-            color: var(--accent-cyan);
-            text-transform: none;
-            font-weight: 400;
-        }
-
-        summary::after {
-            content: "+";
-            color: var(--accent-cyan);
-            transition: transform 0.3s;
-            margin-left: 15px;
-        }
-
-        details[open] summary::after { content: "−"; transform: rotate(90deg); }
-
-        .accordion-content {
-            padding: 0 20px 20px 20px;
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .timeline-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: 0.3s;
             text-decoration: none;
-            color: inherit;
         }
+        .badge:hover { background: rgba(0, 255, 204, 0.2); transform: translateY(-2px); }
 
-        .timeline-link:hover { color: var(--accent-cyan); }
-        .timeline-link:last-child { border-bottom: none; }
-        .item-title { display: block; font-weight: 700; color: #fff; }
-        .item-meta { font-size: 0.85rem; color: var(--text-dim); }
+        .subtitle { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Sections */
+        .section-header-row { display: flex; justify-content: space-between; align-items: center; margin: 50px 0 20px; }
+        .section-label { color: var(--accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; display: flex; align-items: center; gap: 15px; flex: 1; }
+        .section-label::after { content: ""; height: 1px; background: var(--border); flex: 1; margin-right: 20px; }
 
-        footer {
-            margin: 80px 0 40px 0;
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.85rem;
-        }
+        .about-box { padding: 25px; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 3px solid var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        
+        details { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 10px; transition: 0.3s; }
+        details[open] { border-color: var(--accent); }
+        summary { padding: 18px; cursor: pointer; list-style: none; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: "+"; color: var(--accent); transition: 0.3s; }
+        details[open] summary::after { content: "−"; transform: rotate(90deg); }
+        
+        .content { padding: 0 20px 20px; color: var(--dim); font-size: 0.95rem; }
+        .t-link { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
+        .t-link:hover { color: var(--accent); }
+        .t-link:last-child { border-bottom: none; }
+        .t-title { display: block; color: #fff; font-weight: 700; }
+        
+        .controls { display: flex; gap: 8px; align-items: center; }
+        .btn { background: none; border: 1px solid var(--border); color: var(--dim); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.65rem; text-transform: uppercase; transition: 0.2s; }
+        .btn:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-top { border-color: rgba(0, 255, 204, 0.3); color: var(--accent); font-weight: bold; }
 
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; align-items: flex-start; margin-top: -60px; }
-            h1 { font-size: 2.5rem; }
-            .section-header-wrapper { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .accordion-grid { grid-template-columns: 1fr; }
-        }
+        footer { text-align: center; padding: 60px 0 30px; color: var(--dim); font-size: 0.8rem; }
+        @media (max-width: 768px) { .header { flex-direction: column; align-items: flex-start; margin-top: -100px; padding-top: 110px; } }
     </style>
 </head>
-<body>
+<body id="top">
 
-<div class="cover-image"></div>
+<div class="cover"></div>
 
 <div class="container">
-    <header class="header-content">
-        <img src="logo.png" alt="Ophir Oren" class="logo-main">
-        <div class="name-area-wrapper">
-            <div class="name-area">
+    <header class="header">
+        <img src="logo.png" alt="Ophir Oren" class="logo">
+        <div class="info-area">
+            <div class="name-row">
                 <h1>Ophir Oren</h1>
-                <a href="https://www.linkedin.com/in/ophiro/" target="_blank" aria-label="LinkedIn Profile">
-                    <svg class="linkedin-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
+                <a href="https://www.linkedin.com/in/ophiro/" target="_blank" class="linkedin-link">
+                    <svg class="linkedin-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
+                <a href="#portfolio-section" id="header-total-badge" class="badge">0 Total Projects</a>
             </div>
-            <span class="main-subtitle">
-                Cyber & AI Innovation Strategist 
-                <span style="color: var(--border); margin: 0 10px;">|</span> 
-                <a href="#portfolio-section" class="header-cta"><span id="header-counter"></span> Strategic Projects</a>
-            </span>
+            <div class="subtitle">Cyber & AI Innovation Strategist</div>
         </div>
     </header>
 
-    <div class="section-label">About Me</div>
-    <div class="about-section">
-        <p class="about-text">
-            With over <strong>20 years of experience</strong> in the cybersecurity ecosystem, I specialize in bridging the gap between emerging threats and innovative defense. 
-            Currently leading innovation for a <strong>Global Fortune 500</strong> company, my focus lies at the intersection of AI security and enterprise-scale resilience.
-        </p>
+    <div class="section-header-row">
+        <div class="section-label">About Me</div>
+    </div>
+    <div class="about-box">
+        Over 20 years of cybersecurity expertise, bridging emerging threats with innovative defense. Currently leading AI security innovation for a Global Fortune 500 company.
     </div>
 
-    <div class="section-header-wrapper">
+    <div class="section-header-row">
         <div class="section-label">Professional Focus</div>
         <div class="controls">
-            <button class="btn-control" onclick="toggleFocus(true)">Expand All</button>
-            <button class="btn-control" onclick="toggleFocus(false)">Collapse All</button>
+            <button class="btn btn-top" onclick="jumpToTop()">↑ Top</button>
+            <button class="btn" onclick="toggleDetails('.f-item', true)">Expand</button>
+            <button class="btn" onclick="toggleDetails('.f-item', false)">Collapse</button>
         </div>
     </div>
 
-    <div class="accordion-grid">
-        <details class="focus-details">
-            <summary>Enterprise Leadership @ Bayer</summary>
-            <div class="accordion-content">
-                <strong>Head of Cyber and AI Security Innovation Squad</strong><br><br>
-                Leading horizon scanning, technology scouting, and strategic implementation for a global Fortune 500 company.
-            </div>
+    <div class="grid">
+        <details class="f-item">
+            <summary>Cyber & AI Innovation @ Bayer</summary>
+            <div class="content"><strong>Head of Cyber and AI Security Innovation Squad</strong><br>Scouting and strategic implementation for global enterprise resilience.</div>
         </details>
-
-        <details class="focus-details">
-            <summary>Purple Team & Defensive Cyber @ Clalit</summary>
-            <div class="accordion-content">
-                <strong>14 Years of Strategic Cyber Operations</strong><br><br>
-                Led two specialized Information Security teams at Israel's largest healthcare organization, orchestrating complex defense strategies for nationwide critical infrastructure.
-            </div>
+        <details class="f-item">
+            <summary>Purple Team @ Clalit</summary>
+            <div class="content"><strong>14 Years of Strategic Operations</strong><br>Led specialized defensive teams for nationwide critical healthcare infrastructure.</div>
         </details>
-
-        <details class="focus-details">
+        <details class="f-item">
             <summary>Venture Capital Advisory</summary>
-            <div class="accordion-content">
-                Providing technical due diligence and strategic evaluation for top-tier venture funds, identifying high-potential cybersecurity startups.
-            </div>
+            <div class="content">Technical due diligence and evaluation for high-potential cybersecurity and AI startups.</div>
         </details>
-
-        <details class="focus-details">
+        <details class="f-item">
             <summary>Advisory Board Portfolio</summary>
-            <div class="accordion-content">
-                Strategic advisor to emerging cybersecurity startups on product-market fit and enterprise go-to-market strategies.
-            </div>
+            <div class="content">Strategic advisor for startups on product-market fit and enterprise go-to-market roadmaps.</div>
         </details>
     </div>
 
-    <div id="portfolio-section" class="section-header-wrapper">
-        <div class="section-label">
-            Timeline & Projects 
-            <span id="timeline-counter" style="margin-left: 10px; color: var(--text-dim); text-transform: none; letter-spacing: normal; font-size: 0.8rem; font-weight: 400;"></span>
-        </div>
+    <div class="section-header-row" id="portfolio-section">
+        <div class="section-label" id="timeline-label">Timeline & Projects</div>
         <div class="controls">
-            <button class="btn-control" onclick="toggleTimeline(true)">Expand All</button>
-            <button class="btn-control" onclick="toggleTimeline(false)">Collapse All</button>
+            <button class="btn btn-top" onclick="jumpToTop()">↑ Top</button>
+            <button class="btn" onclick="toggleDetails('.y-item', true)">Expand</button>
+            <button class="btn" onclick="toggleDetails('.y-item', false)">Collapse</button>
         </div>
     </div>
 
-    <div id="timeline-container">
-        <details class="year-details" open>
-            <summary><span class="year-text" style="font-size: 1.2rem; color: var(--accent-cyan);">2026</span></summary>
-            <div class="accordion-content">
-                <div class="timeline-link">
-                    <div><span class="item-title">Future Initiatives</span><span class="item-meta">Active Development</span></div>
-                    <span style="color: var(--accent-cyan)">⚡ Working in Progress...</span>
-                </div>
+    <div id="t-container">
+        <details class="y-item" open>
+            <summary><span>2026</span></summary>
+            <div class="content">
+                <div class="t-link"><div><span class="t-title">Future Initiatives</span><span class="t-meta">Active Research</span></div><span style="color:var(--accent)">⚡</span></div>
             </div>
         </details>
 
-        <details class="year-details">
-            <summary><span class="year-text" style="font-size: 1.2rem;">2025</span></summary>
-            <div class="accordion-content">
-                <a href="https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/" target="_blank" class="timeline-link">
-                    <div style="width: 100%;">
-                        <span class="item-title">AI & Non-Human Identities (NHI) Research</span>
-                        <span class="item-meta">Joint research with Astrix Security, featured at <strong>BSidesTLV 2025</strong>.</span>
-                    </div>
-                    <span>↗</span>
+        <details class="y-item">
+            <summary><span>2025</span></summary>
+            <div class="content">
+                <a href="https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/" target="_blank" class="t-link">
+                    <div><span class="t-title">AI & NHI Research</span><span class="t-meta">Featured at BSidesTLV 2025</span></div><span>↗</span>
                 </a>
-                <a href="https://ophiroren.github.io/threatmap/" target="_blank" class="timeline-link">
-                    <div><span class="item-title">ThreatMap Dashboard</span><span class="item-meta">Cyber Intelligence Visualization</span></div>
-                    <span>↗</span>
+                <a href="https://ophiroren.github.io/threatmap/" target="_blank" class="t-link">
+                    <div><span class="t-title">ThreatMap Dashboard</span><span class="t-meta">Cyber Intel Visualization</span></div><span>↗</span>
                 </a>
-                <a href="https://kamaband.lovable.app/" target="_blank" class="timeline-link">
-                    <div><span class="item-title">KamaBand</span><span class="item-meta">Fintech for Musicians</span></div>
-                    <span>↗</span>
+                <a href="https://kamaband.lovable.app/" target="_blank" class="t-link">
+                    <div><span class="t-title">KamaBand</span><span class="t-meta">Fintech for Musicians</span></div><span>↗</span>
                 </a>
-                <a href="https://www.youtube.com/watch?v=811cq2zBpJs" target="_blank" class="timeline-link">
-                    <div style="width: 100%;">
-                        <span class="item-title">ICS Cyber Talks Podcast [Hebrew]</span>
-                        <span class="item-meta">A deep dive into cyber innovation and the future of AI.</span>
-                    </div>
-                    <span>↗</span>
+                <a href="https://www.youtube.com/watch?v=811cq2zBpJs" target="_blank" class="t-link">
+                    <div><span class="t-title">ICS Cyber Talks Podcast</span><span class="t-meta">Deep dive into AI future</span></div><span>↗</span>
                 </a>
             </div>
         </details>
 
-        <details class="year-details">
-            <summary><span class="year-text" style="font-size: 1.2rem;">2024</span></summary>
-            <div class="accordion-content">
-                <a href="https://www.youtube.com/watch?v=DZvj-X0ON60" target="_blank" class="timeline-link">
-                    <div><span class="item-title">Lasso Security Webinar</span><span class="item-meta">Securing the Wild West: AI Security for Enterprises</span></div>
-                    <span>↗</span>
+        <details class="y-item">
+            <summary><span>2024</span></summary>
+            <div class="content">
+                <a href="https://www.youtube.com/watch?v=DZvj-X0ON60" target="_blank" class="t-link">
+                    <div><span class="t-title">Lasso Security Webinar</span><span class="t-meta">AI Security for Enterprises</span></div><span>↗</span>
                 </a>
             </div>
         </details>
@@ -440,43 +196,57 @@
 
 <script>
     function updateCounters() {
-        const yearSections = document.querySelectorAll('.year-details');
-        let totalProjects = 0;
-
-        yearSections.forEach(section => {
-            const projects = section.querySelectorAll('.timeline-link').length;
-            totalProjects += projects;
-            const summary = section.querySelector('summary');
-            const yearTextSpan = summary.querySelector('.year-text');
-            let badge = summary.querySelector('.year-count');
-            if (!badge) {
-                badge = document.createElement('span');
-                badge.className = 'year-count';
-                yearTextSpan.after(badge);
+        let total = 0;
+        document.querySelectorAll('.y-item').forEach(el => {
+            const projects = el.querySelectorAll('.t-link');
+            const count = projects.length;
+            total += count;
+            
+            const summarySpan = el.querySelector('summary span');
+            if (summarySpan) {
+                let b = el.querySelector('.badge-year') || document.createElement('span');
+                b.className = 'badge badge-year';
+                b.style.fontSize = '0.7rem';
+                b.style.cursor = 'default';
+                b.textContent = `${count} Project${count !== 1 ? 's' : ''}`;
+                summarySpan.after(b);
             }
-            badge.textContent = `${projects} Project${projects !== 1 ? 's' : ''}`;
         });
+        
+        const headerBadge = document.getElementById('header-total-badge');
+        if (headerBadge) headerBadge.textContent = `${total} Total Projects`;
 
-        const headerCounter = document.getElementById('header-counter');
-        if(headerCounter) headerCounter.textContent = totalProjects;
-        const timelineCounter = document.getElementById('timeline-counter');
-        if(timelineCounter) timelineCounter.textContent = `(${totalProjects} Total)`;
+        const timelineLabel = document.getElementById('timeline-label');
+        if (timelineLabel) {
+            let b = timelineLabel.querySelector('.badge-total') || document.createElement('span');
+            b.className = 'badge badge-total';
+            b.style.cursor = 'default';
+            b.textContent = `${total} Total Projects`;
+            timelineLabel.appendChild(b);
+        }
     }
 
-    function toggleTimeline(open) {
-        document.querySelectorAll('.year-details').forEach(details => details.open = open);
+    function toggleDetails(selector, state) {
+        document.querySelectorAll(selector).forEach(el => el.open = state);
     }
 
-    function toggleFocus(open) {
-        document.querySelectorAll('.focus-details').forEach(details => details.open = open);
+    function jumpToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // ניקוי ה-hash מהכתובת בלי לרענן את הדף
+        history.pushState("", document.title, window.location.pathname + window.location.search);
     }
 
-    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    // טיפול בלחיצה על המונה למעלה (מניעת הוספת # ל-URL)
+    document.getElementById('header-total-badge').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('portfolio-section').scrollIntoView({ behavior: 'smooth' });
+    });
 
-    window.onload = function() {
+    document.addEventListener('DOMContentLoaded', () => {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         updateCounters();
-        window.scrollTo(0, 0);
-    };
+        setTimeout(updateCounters, 300); 
+    });
 </script>
 
 </body>
