@@ -90,6 +90,59 @@
 
         footer { text-align: center; padding: 60px 0 30px; color: var(--dim); font-size: 0.8rem; }
         @media (max-width: 768px) { .header { flex-direction: column; align-items: flex-start; margin-top: -100px; padding-top: 110px; } }
+
+        /* --- התאמות Mobile עבור ה-Portfolio --- */
+@media (max-width: 768px) {
+    /* 1. התאמת גובה הקאבר - שלא יתפוס חצי מסך */
+    .cover {
+        height: 180px; 
+    }
+
+    /* 2. סידור ה-Header - הלוגו והטקסט עוברים למרכז */
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -90px; /* צמצום המרווח השלילי בגלל הקטנת הלוגו */
+        padding-top: 0;
+        gap: 15px;
+    }
+
+    /* 3. הקטנת הלוגו */
+    .logo {
+        width: 130px;
+        height: 130px;
+        border-width: 3px;
+    }
+
+    /* 4. סידור השם, האייקון והמונה בשורה אחת מרכזית */
+    .name-row {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* הקטנת הכותרת */
+    }
+
+    /* 5. סידור הגריד - פריסה של כרטיס אחד בכל שורה */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 6. התאמת המונה (Badge) למובייל - שלא יברח מהמסך */
+    .badge {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+
+    /* 7. כפתורי ה-Controls (Expand/Collapse) - שיישארו קריאים */
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
     </style>
 </head>
 <body id="top">

@@ -80,6 +80,33 @@
     color: #fff;
     text-shadow: 0 0 8px var(--neon-cyan);
 }
+
+/* --- התאמה למובייל (טלפונים) --- */
+@media (max-width: 768px) {
+    /* סידור המפות אחת מתחת לשנייה במקום גריד של 2x2 */
+    .grid-container {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(4, 1fr) !important;
+        overflow-y: auto; /* מאפשר גלילה למטה לראות את כל המפות */
+    }
+
+    /* הסתרת הלוגו המרכזי במובייל כדי שלא יחסום את כל המסך הקטן */
+    #central-logo {
+        display: none !important;
+    }
+
+    /* התאמת גובה הריבועים שיהיה נוח לצפייה בנייד */
+    .grid-item {
+        height: 50vh; 
+        border-bottom: 2px solid #333;
+    }
+
+    /* הסתרת כפתורים פחות קריטיים במובייל כדי לחסוך מקום בשורה */
+    .btn-tool:not(:last-child) {
+        display: none;
+    }
+}
+
     </style>
 </head>
 <body>
