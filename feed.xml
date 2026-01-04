@@ -3,7 +3,7 @@
 <channel>
     <title>Ophir Oren - Cyber &amp; AI Security Updates</title>
     <link>https://ophiroren.github.io/</link>
-    <description>Latest milestones and professional impact from Ophir Oren's portfolio</description>
+    <description>Latest professional milestones and impact in Cyber Security and AI.</description>
     <language>en-us</language>
     <image>
         <url>https://ophiroren.github.io/logo.png</url>
@@ -11,48 +11,54 @@
         <link>https://ophiroren.github.io/</link>
     </image>
     <atom:link href="https://ophiroren.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    
-        <item>
-            <title>[App] ThreatMap Dashboard</title>
-            <link>https://www.linkedin.com/in/ophiro/</link>
-            <description>Cyber Intel Visualization & Analysis</description>
-            <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-            <guid>https://www.linkedin.com/in/ophiro/</guid>
-        </item>
-        <item>
-            <title>[Strategic] Cyber Innovation Lab</title>
-            <link>https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/</link>
-            <description>Established Global Internal Innovation Hub</description>
-            <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-            <guid>https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/</guid>
-        </item>
-        <item>
-            <title>[Research] AI & NHI Research</title>
-            <link>https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</link>
-            <description>Featured at BSidesTLV 2025</description>
-            <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-            <guid>https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</guid>
-        </item>
-        <item>
-            <title>[App] KamaBand</title>
-            <link>https://kamaband.lovable.app/</link>
-            <description>Fintech for Musicians</description>
-            <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-            <guid>https://kamaband.lovable.app/</guid>
-        </item>
-        <item>
-            <title>[Podcast] ICS Cyber Talks Podcast</title>
-            <link>https://www.youtube.com/watch?v=811cq2zBpJs</link>
-            <description>Deep dive into AI future</description>
-            <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-            <guid>https://www.youtube.com/watch?v=811cq2zBpJs</guid>
-        </item>
-        <item>
-            <title>[Webinar] Lasso Security Webinar</title>
-            <link>https://www.youtube.com/watch?v=DZvj-X0ON60</link>
-            <description>AI Security for Enterprises</description>
-            <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-            <guid>https://www.youtube.com/watch?v=DZvj-X0ON60</guid>
-        </item>
+
+    <item>
+        <title>[App] ThreatMap Dashboard</title>
+        <link>https://ophiroren.github.io/threatmap/</link>
+        <description>Cyber Intel Visualization &amp; Analysis platform.</description>
+        <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+        <guid>https://ophiroren.github.io/threatmap/</guid>
+    </item>
+
+    <item>
+        <title>[Strategic] Cyber Innovation Lab</title>
+        <link>https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/</link>
+        <description>Established Global Internal Innovation Hub.</description>
+        <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+        <guid>https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/</guid>
+    </item>
+
+    <item>
+        <title>[Research] AI &amp; NHI Research</title>
+        <link>https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</link>
+        <description>Featured research at BSidesTLV 2025. Deep dive into AI and Non-Human Identities.</description>
+        <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+        <guid>https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</guid>
+    </item>
+
+    <item>
+        <title>[App] KamaBand</title>
+        <link>https://kamaband.lovable.app/</link>
+        <description>Fintech for Musicians - Project Showcase.</description>
+        <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+        <guid>https://kamaband.lovable.app/</guid>
+    </item>
+
+    <item>
+        <title>[Podcast] ICS Cyber Talks Podcast</title>
+        <link>https://www.youtube.com/watch?v=811cq2zBpJs</link>
+        <description>Deep dive into the future of AI in the industrial sector.</description>
+        <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+        <guid>https://www.youtube.com/watch?v=811cq2zBpJs</guid>
+    </item>
+
+    <item>
+        <title>[Webinar] Lasso Security Webinar</title>
+        <link>https://www.youtube.com/watch?v=DZvj-X0ON60</link>
+        <description>Securing AI for Enterprises - Technical session.</description>
+        <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+        <guid>https://www.youtube.com/watch?v=DZvj-X0ON60</guid>
+    </item>
+
 </channel>
 </rss>
