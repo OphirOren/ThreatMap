@@ -6,7 +6,7 @@
     <title>Ophir Oren | Cyber & AI Security Innovation</title>
     
     <meta name="google-site-verification" content="fCPkw8CyQyRT8MzWACVIYtRJVDJZw2oQZHSSdZWcoQ4" />
-    <meta name="description" content="Portfolio of Ophir Oren - Specialist in Cyber Security Innovation, AI Security, and Purple Team Leadership.">
+    <meta name="description" content="Portfolio of Ophir Oren - Specialist in Cyber Security Innovation, AI Security, and Strategic Leadership.">
     
     <style>
         :root {
@@ -42,7 +42,6 @@
         .linkedin-icon { width: 32px; height: 32px; fill: #fff; transition: 0.3s; }
         .linkedin-icon:hover { fill: var(--accent); transform: scale(1.1); }
 
-        /* Unified Badge Style */
         .badge { 
             background: rgba(0, 255, 204, 0.1); 
             color: var(--accent); 
@@ -63,83 +62,58 @@
 
         .subtitle { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
 
-        /* Sections */
         .section-header-row { display: flex; justify-content: space-between; align-items: center; margin: 50px 0 20px; }
         .section-label { color: var(--accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; display: flex; align-items: center; gap: 15px; flex: 1; }
         .section-label::after { content: ""; height: 1px; background: var(--border); flex: 1; margin-right: 20px; }
 
         .about-box { padding: 25px; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 3px solid var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 15px; }
         
-        details { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 10px; transition: 0.3s; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+        details { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 10px; transition: 0.3s; height: fit-content;}
         details[open] { border-color: var(--accent); }
         summary { padding: 18px; cursor: pointer; list-style: none; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
         summary::after { content: "+"; color: var(--accent); transition: 0.3s; }
         details[open] summary::after { content: "−"; transform: rotate(90deg); }
         
         .content { padding: 0 20px 20px; color: var(--dim); font-size: 0.95rem; }
-        .t-link { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
+        .content ul { margin: 10px 0; padding-left: 20px; }
+        .content li { margin-bottom: 6px; }
+
+        .t-link { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: 0.3s; }
         .t-link:hover { color: var(--accent); }
         .t-link:last-child { border-bottom: none; }
-        .t-title { display: block; color: #fff; font-weight: 700; }
+        .t-title { display: inline-block; color: #fff; font-weight: 700; }
         
+        .t-link.hidden { display: none !important; }
+        .y-item.hidden { display: none !important; }
+        .filter-btn { cursor: pointer; opacity: 0.5; transition: 0.3s; border-bottom: 2px solid transparent; padding-bottom: 2px; }
+        .filter-btn:hover, .filter-btn.active { opacity: 1; border-bottom-color: var(--accent); color: #fff; }
+
+        .t-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; margin-right: 8px; vertical-align: middle; border: 1px solid; }
+        .t-tag.app { color: var(--accent); border-color: rgba(0, 255, 204, 0.3); }
+        .t-tag.podcast { color: #ff4c4c; border-color: rgba(255, 76, 76, 0.3); }
+        .t-tag.webinar { color: #3399ff; border-color: rgba(51, 153, 255, 0.3); }
+        .t-tag.research { color: #cc33ff; border-color: rgba(204, 51, 255, 0.3); }
+        .t-tag.strategic { color: #ffcc00; border-color: rgba(255, 204, 0, 0.3); }
+
         .controls { display: flex; gap: 8px; align-items: center; }
         .btn { background: none; border: 1px solid var(--border); color: var(--dim); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.65rem; text-transform: uppercase; transition: 0.2s; }
         .btn:hover { border-color: var(--accent); color: var(--accent); }
         .btn-top { border-color: rgba(0, 255, 204, 0.3); color: var(--accent); font-weight: bold; }
 
         footer { text-align: center; padding: 60px 0 30px; color: var(--dim); font-size: 0.8rem; }
-        @media (max-width: 768px) { .header { flex-direction: column; align-items: flex-start; margin-top: -100px; padding-top: 110px; } }
+        .footer-credit { margin-bottom: 10px; }
+        .footer-link { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .footer-link:hover { border-bottom-color: var(--accent); }
 
-/* --- התאמות Mobile עבור ה-Portfolio --- */
-@media (max-width: 768px) {
-    /* 1. התאמת גובה הקאבר - שלא יתפוס חצי מסך */
-    .cover {
-        height: 180px; 
-    }
-
-    /* 2. סידור ה-Header - דוחפים את הלוגו למטה כדי שלא יסתיר את הטקסט בתמונה */
-    .header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding-top: 40px;  /* הוספת רווח מעל הלוגו */
-        margin-top: -60px;  /* הקטנת ה"טיפוס" של הלוגו על התמונה (היה 90- או 100-) */
-        gap: 15px;
-    }
-
-    /* 3. הקטנת הלוגו העגול */
-    .logo {
-        width: 115px;
-        height: 115px;
-        border-width: 3px;
-    }
-
-    /* 4. סידור השם, הלינקדין והמונה */
-    .name-row {
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap; /* מאפשר למונה לרדת שורה אם הטלפון צר מאוד */
-    }
-
-    h1 {
-        font-size: 1.7rem;
-        letter-spacing: -0.5px;
-    }
-
-    /* 5. סידור הגריד - פריסה של כרטיס אחד בכל שורה */
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* 6. התאמת המונה (Badge) למובייל */
-    .badge {
-        font-size: 0.75rem;
-        padding: 3px 12px;
-        margin-left: 0; /* ביטול המרווח מהצד במרכז */
-    }
-}
-
+        @media (max-width: 768px) {
+            .cover { height: 180px; }
+            .header { flex-direction: column; align-items: center; text-align: center; padding-top: 40px; margin-top: -60px; gap: 15px; }
+            .logo { width: 115px; height: 115px; }
+            h1 { font-size: 1.7rem; width: 100%; }
+        }
     </style>
 </head>
 <body id="top">
@@ -155,7 +129,7 @@
                 <a href="https://www.linkedin.com/in/ophiro/" target="_blank" class="linkedin-link">
                     <svg class="linkedin-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
-                <a href="#portfolio-section" id="header-total-badge" class="badge">0 Total Projects</a>
+                <a href="#impact-section" id="header-total-badge" class="badge">0 Key Milestones</a>
             </div>
             <div class="subtitle">Cyber & AI Innovation Strategist</div>
         </div>
@@ -178,26 +152,53 @@
     </div>
 
     <div class="grid">
-        <details class="f-item">
-            <summary>Cyber & AI Innovation @ Bayer</summary>
-            <div class="content"><strong>Head of Cyber and AI Security Innovation Squad</strong><br>Scouting and strategic implementation for global enterprise resilience.</div>
+        <details class="f-item" open>
+            <summary>Cyber & AI Innovation Leadership @ Bayer</summary>
+            <div class="content">
+                <strong>Head of Cyber and AI Security Innovation Squad</strong> for a Global Fortune 500 company.
+                <ul style="margin-top: 12px;">
+                    <li><strong>Horizon Scanning & Scouting:</strong> Identifying emerging trends and stealth-mode startups to future-proof enterprise resilience.</li>
+                    <li><strong>Technical Leadership:</strong> Managing the innovation squad, overseeing deep-tech evaluations, and leading strategic pilot projects.</li>
+                    <li><strong>Strategic Roadmap:</strong> Shaping Bayer’s global cybersecurity technology strategy and architectural development.</li>
+                    <li><strong>Ecosystem Partnerships:</strong> Building strategic alliances with VCs, academia, and the global cybersecurity community.</li>
+                </ul>
+            </div>
         </details>
+
         <details class="f-item">
-            <summary>Purple Team @ Clalit</summary>
-            <div class="content"><strong>14 Years of Strategic Operations</strong><br>Led specialized defensive teams for nationwide critical healthcare infrastructure.</div>
+            <summary>Investment & Advisory Partner</summary>
+            <div class="content">
+                Serving on <strong>Advisory Boards</strong> for leading VCs including <strong>Glilot Capital</strong> and <strong>Cardumen Capital</strong>. 
+                Leadership member of <strong>CloudAppSec IL Forum</strong> and active in <strong>Cyber Club London (CCL)</strong>.
+                <br><br>
+                Collaborating with <strong>top-tier global and local VC funds</strong> to drive high-quality deal flow, provide technical scouting, and perform due diligence for high-stakes investment decisions in the Cyber & AI domains.
+            </div>
         </details>
+
         <details class="f-item">
-            <summary>Venture Capital Advisory</summary>
-            <div class="content">Technical due diligence and evaluation for high-potential cybersecurity and AI startups.</div>
+            <summary>Cyber Defense Leadership @ Clalit</summary>
+            <div class="content">
+                <strong>Managed the Cyber Defense teams</strong> for Israel’s largest healthcare provider (2nd globally). 
+                Established the core defensive stack from the ground up for a nationwide infrastructure.
+                <ul style="margin-top: 12px;">
+                    <li>Built and managed <strong>EDR/XDR, SEG, DLP, and NAC</strong> systems at national scale.</li>
+                    <li>Led <strong>Purple Team</strong> strategies, proactive <strong>Threat Hunting</strong>, and <strong>Incident Response (IR)</strong>.</li>
+                    <li>Spearheaded security for strategic <strong>Cloud Migration</strong> and led major technical tenders.</li>
+                </ul>
+            </div>
         </details>
+
         <details class="f-item">
-            <summary>Advisory Board Portfolio</summary>
-            <div class="content">Strategic advisor for startups on product-market fit and enterprise go-to-market roadmaps.</div>
+            <summary>Startup Strategy Advisor</summary>
+            <div class="content">
+                Guiding early-stage startups on <strong>Product-Market Fit</strong>, technical roadmaps, and enterprise go-to-market strategies. 
+                Providing expert validation for technical moats and enterprise-grade security alignment.
+            </div>
         </details>
     </div>
 
-    <div class="section-header-row" id="portfolio-section">
-        <div class="section-label" id="timeline-label">Timeline & Projects</div>
+    <div class="section-header-row" id="impact-section">
+        <div class="section-label" id="timeline-label">Timeline & Professional Impact</div>
         <div class="controls">
             <button class="btn btn-top" onclick="jumpToTop()">↑ Top</button>
             <button class="btn" onclick="toggleDetails('.y-item', true)">Expand</button>
@@ -209,24 +210,59 @@
         <details class="y-item" open>
             <summary><span>2026</span></summary>
             <div class="content">
-                <div class="t-link"><div><span class="t-title">Future Initiatives</span><span class="t-meta">Active Research</span></div><span style="color:var(--accent)">⚡</span></div>
+                <a href="https://ophiroren.github.io/threatmap/" target="_blank" class="t-link">
+                    <div>
+                        <span class="t-tag app">App</span>
+                        <span class="t-title">ThreatMap Dashboard</span>
+                        <span class="t-meta">Cyber Intel Visualization & Analysis</span>
+                    </div>
+                    <span>↗</span>
+                </a>
+                <div class="t-link" style="cursor: default;">
+                    <div>
+                        <span class="t-tag strategic">Strategic</span>
+                        <span class="t-title">Future Initiatives</span>
+                        <span class="t-meta">Active Academic & Industrial Research</span>
+                    </div>
+                    <span style="color:var(--accent)">⚡</span>
+                </div>
             </div>
         </details>
 
         <details class="y-item">
             <summary><span>2025</span></summary>
             <div class="content">
-                <a href="https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/" target="_blank" class="t-link">
-                    <div><span class="t-title">AI & NHI Research</span><span class="t-meta">Featured at BSidesTLV 2025</span></div><span>↗</span>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/" target="_blank" class="t-link">
+                    <div>
+                        <span class="t-tag strategic">Strategic</span>
+                        <span class="t-title">Cyber Innovation Lab</span>
+                        <span class="t-meta">Established Global Internal Innovation Hub</span>
+                    </div>
+                    <span>↗</span>
                 </a>
-                <a href="https://ophiroren.github.io/threatmap/" target="_blank" class="t-link">
-                    <div><span class="t-title">ThreatMap Dashboard</span><span class="t-meta">Cyber Intel Visualization</span></div><span>↗</span>
+                <a href="https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/" target="_blank" class="t-link">
+                    <div>
+                        <span class="t-tag research">Research</span>
+                        <span class="t-title">AI & NHI Research</span>
+                        <span class="t-meta">Featured at BSidesTLV 2025</span>
+                    </div>
+                    <span>↗</span>
                 </a>
                 <a href="https://kamaband.lovable.app/" target="_blank" class="t-link">
-                    <div><span class="t-title">KamaBand</span><span class="t-meta">Fintech for Musicians</span></div><span>↗</span>
+                    <div>
+                        <span class="t-tag app">App</span>
+                        <span class="t-title">KamaBand</span>
+                        <span class="t-meta">Fintech for Musicians</span>
+                    </div>
+                    <span>↗</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=811cq2zBpJs" target="_blank" class="t-link">
-                    <div><span class="t-title">ICS Cyber Talks Podcast</span><span class="t-meta">Deep dive into AI future</span></div><span>↗</span>
+                    <div>
+                        <span class="t-tag podcast">Podcast</span>
+                        <span class="t-title">ICS Cyber Talks Podcast</span>
+                        <span class="t-meta">Deep dive into AI future</span>
+                    </div>
+                    <span>↗</span>
                 </a>
             </div>
         </details>
@@ -235,68 +271,121 @@
             <summary><span>2024</span></summary>
             <div class="content">
                 <a href="https://www.youtube.com/watch?v=DZvj-X0ON60" target="_blank" class="t-link">
-                    <div><span class="t-title">Lasso Security Webinar</span><span class="t-meta">AI Security for Enterprises</span></div><span>↗</span>
+                    <div>
+                        <span class="t-tag webinar">Webinar</span>
+                        <span class="t-title">Lasso Security Webinar</span>
+                        <span class="t-meta">AI Security for Enterprises</span>
+                    </div>
+                    <span>↗</span>
                 </a>
             </div>
         </details>
     </div>
 
-    <footer>&copy; 2026 Ophir Oren | #IStandWithIsrael</footer>
+    <footer>
+        <div class="footer-credit">Developed by <a href="https://www.linkedin.com/in/ophiro/" target="_blank" class="footer-link">Ophir Oren</a></div>
+        <div>&copy; 2026 Ophir Oren | #IStandWithIsrael</div>
+    </footer>
 </div>
 
 <script>
-    function updateCounters() {
+    let tagCounts = {};
+
+    function initPage() {
+        calculateStats();
+        renderFilters();
+    }
+
+    function calculateStats() {
         let total = 0;
+        tagCounts = { all: 0 }; 
+
         document.querySelectorAll('.y-item').forEach(el => {
-            const projects = el.querySelectorAll('.t-link');
-            const count = projects.length;
-            total += count;
+            const items = el.querySelectorAll('.t-link');
+            total += items.length;
             
             const summarySpan = el.querySelector('summary span');
             if (summarySpan) {
-                let b = el.querySelector('.badge-year') || document.createElement('span');
-                b.className = 'badge badge-year';
-                b.style.fontSize = '0.7rem';
-                b.style.cursor = 'default';
-                b.textContent = `${count} Project${count !== 1 ? 's' : ''}`;
-                summarySpan.after(b);
+                const oldBadge = el.querySelector('.badge-year') || document.createElement('span');
+                oldBadge.className = 'badge badge-year';
+                oldBadge.style.fontSize = '0.7rem';
+                oldBadge.textContent = `${items.length} Milestone${items.length !== 1 ? 's' : ''}`;
+                summarySpan.after(oldBadge);
             }
+
+            items.forEach(item => {
+                const tag = item.querySelector('.t-tag');
+                if (tag) {
+                    const type = Array.from(tag.classList).find(c => c !== 't-tag');
+                    tagCounts[type] = (tagCounts[type] || 0) + 1;
+                }
+            });
         });
-        
+        tagCounts.all = total;
+
         const headerBadge = document.getElementById('header-total-badge');
-        if (headerBadge) headerBadge.textContent = `${total} Total Projects`;
+        if (headerBadge) headerBadge.textContent = `${total} Key Milestones`;
 
         const timelineLabel = document.getElementById('timeline-label');
         if (timelineLabel) {
             let b = timelineLabel.querySelector('.badge-total') || document.createElement('span');
             b.className = 'badge badge-total';
-            b.style.cursor = 'default';
-            b.textContent = `${total} Total Projects`;
+            b.textContent = `${total} Key Milestones`;
             timelineLabel.appendChild(b);
         }
     }
 
+    function renderFilters() {
+        const timelineLabel = document.getElementById('timeline-label');
+        if (!timelineLabel) return;
+        let statsDiv = document.getElementById('tag-stats') || document.createElement('div');
+        statsDiv.id = 'tag-stats';
+        statsDiv.style.cssText = "font-size: 0.65rem; color: var(--dim); margin-top: 10px; display: flex; gap: 15px; flex-wrap: wrap; text-transform: uppercase; letter-spacing: 1px;";
+        timelineLabel.parentElement.after(statsDiv);
+
+        let html = `<span class="filter-btn active" onclick="filterItems('all', this)">ALL <strong style="color:var(--text)">(${tagCounts.all})</strong></span>`;
+        Object.entries(tagCounts).forEach(([type, count]) => {
+            if (type !== 'all' && count > 0) {
+                html += `<span class="filter-btn" onclick="filterItems('${type}', this)">${type} <strong style="color:var(--text)">(${count})</strong></span>`;
+            }
+        });
+        statsDiv.innerHTML = html;
+    }
+
+    function filterItems(filterType, btnElement) {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+
+        document.querySelectorAll('.y-item').forEach(yearBlock => {
+            const items = yearBlock.querySelectorAll('.t-link');
+            let hasVisibleItems = false;
+            items.forEach(item => {
+                const tag = item.querySelector('.t-tag');
+                const shouldShow = filterType === 'all' || (tag && tag.classList.contains(filterType));
+                item.classList.toggle('hidden', !shouldShow);
+                if (shouldShow) hasVisibleItems = true;
+            });
+            yearBlock.classList.toggle('hidden', !hasVisibleItems);
+            if (hasVisibleItems && filterType !== 'all') yearBlock.open = true;
+        });
+    }
+
     function toggleDetails(selector, state) {
-        document.querySelectorAll(selector).forEach(el => el.open = state);
+        document.querySelectorAll(selector).forEach(el => {
+            if (!el.classList.contains('hidden')) el.open = state;
+        });
     }
 
     function jumpToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // ניקוי ה-hash מהכתובת בלי לרענן את הדף
-        history.pushState("", document.title, window.location.pathname + window.location.search);
     }
 
-    // טיפול בלחיצה על המונה למעלה (מניעת הוספת # ל-URL)
-    document.getElementById('header-total-badge').addEventListener('click', function(e) {
+    document.getElementById('header-total-badge').addEventListener('click', (e) => {
         e.preventDefault();
-        document.getElementById('portfolio-section').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('impact-section').scrollIntoView({ behavior: 'smooth' });
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-        updateCounters();
-        setTimeout(updateCounters, 300); 
-    });
+    document.addEventListener('DOMContentLoaded', initPage);
 </script>
 
 </body>
