@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ophir Oren | Cyber & AI Security Innovation</title>
     
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
     <meta name="google-site-verification" content="fCPkw8CyQyRT8MzWACVIYtRJVDJZw2oQZHSSdZWcoQ4" />
     <meta name="description" content="Portfolio of Ophir Oren - Specialist in Cyber Security Innovation, AI Security, and Strategic Leadership.">
+    
+    <link rel="alternate" type="application/rss+xml" title="Ophir Oren RSS Feed" href="feed.xml" />
     
     <style>
         :root {
             --bg: #0f0524; --card: #1a0b3d; --accent: #00ffcc;
             --text: #fff; --dim: #b3a9c9; --border: #2d1b5a;
+            --rss: #ff8c00;
         }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -104,9 +110,19 @@
         .btn-top { border-color: rgba(0, 255, 204, 0.3); color: var(--accent); font-weight: bold; }
 
         footer { text-align: center; padding: 60px 0 30px; color: var(--dim); font-size: 0.8rem; }
-        .footer-credit { margin-bottom: 10px; }
+        .footer-credit { margin-bottom: 15px; }
         .footer-link { color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: 0.3s; }
         .footer-link:hover { border-bottom-color: var(--accent); }
+
+        .rss-btn { 
+            display: inline-flex; align-items: center; gap: 8px; 
+            color: var(--rss); text-decoration: none; font-weight: 700; 
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;
+            padding: 6px 12px; border: 1px solid rgba(255, 140, 0, 0.3); 
+            border-radius: 4px; transition: 0.3s; margin-top: 10px;
+        }
+        .rss-btn:hover { background: rgba(255, 140, 0, 0.1); border-color: var(--rss); }
+        .rss-icon { width: 14px; height: 14px; fill: var(--rss); }
 
         @media (max-width: 768px) {
             .cover { height: 180px; }
@@ -152,7 +168,7 @@
     </div>
 
     <div class="grid">
-        <details class="f-item" open>
+        <details class="f-item">
             <summary>Cyber & AI Innovation Leadership @ Bayer</summary>
             <div class="content">
                 <strong>Head of Cyber and AI Security Innovation Squad</strong> for a Global Fortune 500 company.
@@ -284,7 +300,12 @@
 
     <footer>
         <div class="footer-credit">Developed by <a href="https://www.linkedin.com/in/ophiro/" target="_blank" class="footer-link">Ophir Oren</a></div>
-        <div>&copy; 2026 Ophir Oren | #IStandWithIsrael</div>
+        <div style="margin-bottom: 10px;">&copy; 2026 Ophir Oren | #IStandWithIsrael</div>
+        
+        <a href="feed.xml" target="_blank" class="rss-btn">
+            <svg class="rss-icon" viewBox="0 0 24 24"><path d="M6.18,15.64A2.18,2.18 0 0,1 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82A2.18,2.18 0 0,1 6.18,15.64M4,4.44A15.56,15.56 0 0,1 19.56,20H16.73A12.73,12.73 0 0,0 4,7.27V4.44M4,10.1A9.9,9.9 0 0,1 13.9,20H11.07A7.07,7.07 0 0,0 4,12.93V10.1Z" /></svg>
+            Follow via RSS
+        </a>
     </footer>
 </div>
 
