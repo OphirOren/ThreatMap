@@ -10,20 +10,15 @@
         <link>https://ophiroren.github.io/threatmap/</link>
         <guid isPermaLink="true">https://ophiroren.github.io/threatmap/</guid>
         <description>Cyber Intel Visualization &amp; Analysis platform.</description>
+        <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
     </item>
 
     <item>
-        <title>[Strategic] Cyber Innovation Lab</title>
+        <title>[Strategic] Established Global Internal Cyber Innovation OT Lab</title>
         <link>https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/</link>
         <guid isPermaLink="true">https://www.linkedin.com/feed/update/urn:li:activity:7400908923446243328/</guid>
         <description>Established Global Internal Innovation Hub.</description>
-    </item>
-
-    <item>
-        <title>[Research] AI &amp; NHI Research</title>
-        <link>https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</link>
-        <guid isPermaLink="true">https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</guid>
-        <description>Featured research at BSidesTLV 2025. Deep dive into AI and Non-Human Identities.</description>
+        <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
     </item>
 
     <item>
@@ -31,6 +26,7 @@
         <link>https://kamaband.lovable.app/</link>
         <guid isPermaLink="true">https://kamaband.lovable.app/</guid>
         <description>Fintech for Musicians - Project Showcase.</description>
+        <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
     </item>
 
     <item>
@@ -38,6 +34,15 @@
         <link>https://www.youtube.com/watch?v=811cq2zBpJs</link>
         <guid isPermaLink="true">https://www.youtube.com/watch?v=811cq2zBpJs</guid>
         <description>Deep dive into the future of AI in the industrial sector.</description>
+        <pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+        <title>[Research] AI &amp; NHI Research</title>
+        <link>https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</link>
+        <guid isPermaLink="true">https://astrix.security/learn/blog/astrix-research-presents-touchpoints-between-ai-and-non-human-identities/</guid>
+        <description>Featured research at BSidesTLV 2025. Deep dive into AI and Non-Human Identities.</description>
+        <pubDate>Mon, 09 Jun 2025 00:00:00 +0000</pubDate>
     </item>
 
     <item>
@@ -45,6 +50,7 @@
         <link>https://www.youtube.com/watch?v=DZvj-X0ON60</link>
         <guid isPermaLink="true">https://www.youtube.com/watch?v=DZvj-X0ON60</guid>
         <description>Securing AI for Enterprises - Technical session.</description>
+        <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
     </item>
 
 </channel>
