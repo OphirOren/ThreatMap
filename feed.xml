@@ -5,6 +5,12 @@
     <link>https://ophiroren.github.io/</link>
     <description>Professional Updates</description>
     <atom:link href="https://ophiroren.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <image>
+        <url>https://ophiroren.github.io/logo.png</url>
+        <title>Ophir Oren</title>
+        <link>https://ophiroren.github.io/</link>
+    </image>
 
     <item>
         <title>[App] ThreatMap Dashboard</title>
